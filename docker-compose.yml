@@ -1,0 +1,28 @@
+services:
+  selenium:
+    image: selenium/standalone-chrome:latest
+    container_name: docker-sandbox-selenium
+    shm_size: 2gb
+    environment:
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
+      - SE_VNC_NO_PASSWORD=1
+      - SE_SCREEN_WIDTH=1800
+      - SE_SCREEN_HEIGHT=960
+      - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+
+  ubuntu:
+    image: gradle:8.7-jdk17
+    container_name: docker-sandbox-ubuntu
+    stdin_open: true
+    tty: true
+    command: sleep infinity
+    volumes:
+      - .:/home/selenium/tests
+    working_dir: /home/selenium/tests
+    depends_on:
+      - selenium

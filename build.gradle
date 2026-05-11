@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.19.1'
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+    
+    testImplementation 'org.testng:testng:7.9.0'
+}
+
+test {
+    useTestNG() //
+    testLogging.showStandardStreams = true
+}
