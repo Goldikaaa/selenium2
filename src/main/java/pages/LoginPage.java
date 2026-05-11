@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
     private By signupNameField = By.xpath("//input[@data-qa='signup-name']");
@@ -18,18 +19,24 @@ public class LoginPage extends BasePage {
     }
 
     public void startSignup(String name, String email) {
+        waitForPageReady();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(signupNameField));
         enterText(signupNameField, name);
         enterText(signupEmailField, email);
         clickElement(signupBtn);
     }
 
     public void loginUser(String email, String password) {
+        waitForPageReady();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginEmailField));
         enterText(loginEmailField, email);
         enterText(loginPasswordField, password);
         clickElement(loginBtn);
     }
 
     public void logout() {
+        waitForPageReady();
+        wait.until(ExpectedConditions.elementToBeClickable(logoutBtn));
         clickElement(logoutBtn);
     }
 }

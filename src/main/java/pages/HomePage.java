@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
     private By loginMenuBtn = By.xpath("//div[@class='shop-menu pull-right']//a[contains(@href, '/login')]");
@@ -16,10 +17,14 @@ public class HomePage extends BasePage {
     }
 
     public void clickLoginMenu() {
+        waitForPageReady();
+        wait.until(ExpectedConditions.elementToBeClickable(loginMenuBtn));
         clickElement(loginMenuBtn);
     }
     
     public void clickTestCases() {
+        waitForPageReady();
+        wait.until(ExpectedConditions.elementToBeClickable(testCasesBtn));
         clickElement(testCasesBtn);
     }
 }

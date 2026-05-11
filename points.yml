@@ -18,12 +18,13 @@ student:
 # while working on this assignment, briefly describe how.
 # This has no effect on your grade.
 # ----------------------------------------------------------
+# ----------------------------------------------------------
+# AI usage (optional but appreciated)
+# ----------------------------------------------------------
 ai_usage:
-  used: false
-  tools: ""           # e.g. "Claude, GitHub Copilot"
-  description: ""     # e.g. "Used Claude to generate initial Page Object 
-                       #  classes, then modified them manually. Used Copilot 
-                       #  for autocomplete while writing test methods."
+  used: true
+  tools: "Gemini 3.1 Pro"           
+  description: "A Gemini-t hibakereséshez és finomhangoláshoz használtam: segített a fájlok felépítésében, a gitignore kiegészítésében, a komplex xpathek írásában, a felugró reklámok és a GDPR popup kikerülésében (JavascriptExecutor implementálása a BasePage-ben, és DNS-szintű AdBlocker írása a ChromeOptions-ben). Illetve javasolta a Faker használatát."
                        
 # ----------------------------------------------------------
 # Quality requirements (gatekeepers)
@@ -187,7 +188,7 @@ advanced:
     description: "Store test settings in an external file (e.g. .properties, .yml, or .env) and read them at runtime — things like base URL, username, password, browser type. No hardcoded values in your test code"
 
   javascript_executor:       # 4 pts | once
-    done: false
+    done: true
     description: "Use JavascriptExecutor to perform an action (e.g. scroll, click hidden element)"
     link: "https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/JavascriptExecutor.html"
     
@@ -207,6 +208,6 @@ advanced:
     link: "https://www.selenium.dev/documentation/webdriver/browsers/"
 
   dockerized_execution:      # 4 pts | once
-    done: false
+    done: true
     description: "Run tests inside a Docker container (e.g. using docker-compose with Selenium Grid)"
     link: "https://www.selenium.dev/documentation/grid/getting_started/"

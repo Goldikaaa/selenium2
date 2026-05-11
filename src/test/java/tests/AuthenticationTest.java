@@ -33,7 +33,7 @@ public class AuthenticationTest extends BaseTest {
                 faker.address().zipCode(), faker.phoneNumber().cellPhone()
         );
         
-        // Assertions could be added here to verify successful account creation
+        Assert.assertTrue(driver.getCurrentUrl().contains("account_created"), "A regisztráció nem sikerült!");
     }
 
     @Test(dependsOnMethods = "testUserRegistration", description = "Verify registered user can login and logout")

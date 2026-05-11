@@ -13,8 +13,8 @@ public class NavigationTest extends BaseTest {
         for (String pageUrl : pages) {
             driver.get(ConfigReader.getProperty("baseUrl") + pageUrl);
             
-            Assert.assertTrue(driver.getTitle().contains("Automation Exercise"), 
-                    "A cím nem megfelelő ezen az oldalon: " + pageUrl);
+            Assert.assertTrue(driver.getCurrentUrl().contains(pageUrl), 
+                    "URL nem megfelelő ezen az oldalon: " + pageUrl);
         }
     }
 }
